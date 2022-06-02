@@ -14,17 +14,6 @@
 // Предприятие 3 (нет сотрудников)
 // - Отдел аналитики (нет сотрудников)
 
-// 2. Написать функцию, которая будет принимать 1 аргумент (id отдела или название отдела и возвращать название предприятия, к которому относится).
-
-// Пример:
-// getEnterpriseName(4) // Предприятие 1
-// getEnterpriseName("Отдел маркетинга") // Предприятие 2
-
-// 3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
-
-// Пример:
-// addEnterprise("Название нового предприятия")
-
 // 4. Написать функцию, которая будет добавлять отдел в предприятие. В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.
 
 // Пример:
@@ -137,3 +126,59 @@ for (let i in enterprises) {
             }
         }
 };
+
+// 2. Написать функцию, которая будет принимать 1 аргумент (id отдела или название отдела и возвращать название предприятия, к которому относится).
+
+// Пример:
+// getEnterpriseName(4) // Предприятие 1
+// getEnterpriseName("Отдел маркетинга") // Предприятие 2
+
+const getEnterpriseName = function(arg) {
+
+    if (typeof(arg) == "number") {
+
+        for (let i in enterprises) {
+
+            if (enterprises[i].id == arg) {
+                return enterprises[i].name
+            }
+          for (let j in enterprises[i].departments) {
+
+              if (enterprises[i].departments[j].id == arg) {
+                  return enterprises[i].name
+              }
+        }
+        }
+    }
+
+    if (typeof(arg) == "string") {
+
+      for (let i in enterprises) {
+
+          if (enterprises[i].id == arg) {
+              return enterprises[i].name
+          }
+        for (let j in enterprises[i].departments) {
+
+            if (enterprises[i].departments[j].name == arg) {
+                return enterprises[i].name
+            }
+      }
+      }
+  }
+};
+
+console.log(getEnterpriseName(1)); //Предприятие 1
+console.log(getEnterpriseName(7)); //Предприятие 2
+console.log(getEnterpriseName("Отдел разработки")); //Предприятие 2
+console.log(getEnterpriseName("Отдел аналитики")); //Предприятие 3
+
+// 3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
+
+// Пример:
+// addEnterprise("Название нового предприятия")
+
+const addEnterprise = function(arg) {
+
+      
+}
