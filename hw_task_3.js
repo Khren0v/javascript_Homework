@@ -178,7 +178,12 @@ console.log(getEnterpriseName("Отдел аналитики")); //Предпр�
 // Пример:
 // addEnterprise("Название нового предприятия")
 
-const addEnterprise = function(arg) {
+const addEnterprise = function(nameEnterprise) {
 
-      
-}
+  nameEnterprise = String(nameEnterprise)
+  enterprises.push(nameEnterprise)
+};
+
+addEnterprise("Предприятие 4")
+
+console.log(enterprises[3])
